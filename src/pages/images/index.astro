@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Image, Picture } from "astro:assets";
 import MainLayout from "../../layout/MainLayout.astro";
 
 
@@ -24,6 +24,54 @@ import post05img from "./src/assets/images/post-05.png"
     height="250"
     alt="Imagen Post"
     />
+    <Image    
+    src={post05img}
+    style={{
+        width:'250px',
+        height:'250px',
+    }}
+    width="500" 
+    height="500"
+    alt="Imagen Post"
+    />
+
+    <h1>Quality Low</h1>
+    <Image
+    src={post05img}
+    quality="low"
+    width="250" 
+    height="250"
+    alt="Imagen Post"
+    />
+
+    <h1>Quality High</h1>
+    <Image
+    src={post05img}
+    quality="high"
+    width="250" 
+    height="250"
+    alt="Imagen Post"
+    />
+
+    <h1>format</h1>
+    <Image
+    src={post05img}
+    format="avif"
+    width="250" 
+    height="250"
+    alt="Imagen Post"
+    />
+
+    <h1>Picture</h1>
+    <Picture
+    src={post05img}
+    formats={['webp','avif','jpeg']}
+    widths={[240, 540, 720, post05img.width]}
+    sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${post05img.width}px`}
+    
+    height="250"
+    alt="Imagen Post"
+    />
 
 
     <div 
@@ -36,3 +84,9 @@ import post05img from "./src/assets/images/post-05.png"
     loading="lazy"
     src="/assets/images/post-04.png" width="250" height="250"/>
 </MainLayout>
+
+<style>
+    h1 {
+        @apply text-white mt-10
+    }
+</style>
